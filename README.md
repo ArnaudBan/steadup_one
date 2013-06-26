@@ -1,4 +1,4 @@
-steadup_one
+Steadup One
 ===========
 
 One page WordPress theme
