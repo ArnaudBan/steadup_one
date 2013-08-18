@@ -1,0 +1,71 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "functions";
+@import "variables";
+
+
+// layout ----------------------------------------------------------------------
+
+body{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: $main_font_color;
+}
+
+a{
+	color: $link_color;
+
+	&:hover, &:active, &:focus{
+		text-decoration: none;
+	}
+}
+
+
+// Header ----------------------------------------------------------------------
+
+.site-header{
+	text-align: center;
+	padding: 20px 2%;
+}
+.site-title{
+	font-size: px_to_em( 30 );
+	font-weight: bold;
+	margin: 15px;
+
+	a{
+		text-decoration: none;
+		color: $main_font_color;
+
+		&:hover, &:active, &:focus{
+			color: $link_color;
+		}
+	}
+}
+
+
+// hentry ----------------------------------------------------------------------
+
+.hentry{
+	padding: 10px 2%;
+
+	p, ul, ol, h1, h2, h3, h4, h5, h6{
+		margin-bottom: 10px;
+	}
+
+}
+.entry-title{
+	font-size: px_to_em( 25 );
+	font-weight: bold;
+	margin-bottom: 15px;
+
+	a{
+		text-decoration: none;
+
+		&:hover, &:active, &:focus{
+			color: $main_font_color;
+		}
+	}
+}

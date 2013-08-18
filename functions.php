@@ -9,6 +9,14 @@
 
 
 /**
+ * add style and JS
+ */
+function abso_enqueue_script(){
+	wp_enqueue_style( 'screen', get_template_directory_uri() . '/styles/screen.css', array(), '20130818', 'all' );
+}
+add_action( 'wp_enqueue_scripts', 'abso_enqueue_script' );
+
+/**
  * Somme custom query form the theme
  *
  * @param object $wp_query
