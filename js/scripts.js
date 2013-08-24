@@ -13,9 +13,8 @@ jQuery(function($){
 // Header and footer height
 function set_header_footer_height(){
 	console.log( 'resize' );
-	var headerImgHeight = jQuery('.header-img').height();
 	var windowHeight = jQuery(window).height();
 
-	jQuery('.site-header').css('min-height', Math.min( windowHeight, headerImgHeight ) );
+	jQuery('.site-header').css('min-height', ( windowHeight * 0.8 ) );
 	jQuery('.site-footer').css('min-height', windowHeight );
 }

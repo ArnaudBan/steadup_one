@@ -97,56 +97,58 @@ a:hover, a:active, a:focus {
 }
 
 /* line 34, ../compass/screen.scss */
-.header-img {
+.background-img {
   position: fixed;
   z-index: -5;
-  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
   height: auto;
 }
 
-/* line 41, ../compass/screen.scss */
+/* line 43, ../compass/screen.scss */
 .site-branding {
   text-align: center;
   padding: 20px 2%;
 }
 
-/* line 45, ../compass/screen.scss */
+/* line 47, ../compass/screen.scss */
 .site-title {
   font-size: 1.875em;
   font-weight: bold;
   margin: 15px;
 }
-/* line 50, ../compass/screen.scss */
+/* line 52, ../compass/screen.scss */
 .site-title a {
   text-decoration: none;
   color: #262829;
 }
-/* line 54, ../compass/screen.scss */
+/* line 56, ../compass/screen.scss */
 .site-title a:hover, .site-title a:active, .site-title a:focus {
   color: #e95a50;
 }
 
-/* line 63, ../compass/screen.scss */
+/* line 65, ../compass/screen.scss */
 .hentry {
   padding: 10px 2%;
   background-color: #ffffff;
 }
-/* line 67, ../compass/screen.scss */
+/* line 69, ../compass/screen.scss */
 .hentry p, .hentry ul, .hentry ol, .hentry h1, .hentry h2, .hentry h3, .hentry h4, .hentry h5, .hentry h6 {
   margin-bottom: 10px;
 }
 
-/* line 72, ../compass/screen.scss */
+/* line 74, ../compass/screen.scss */
 .entry-title {
   font-size: 1.5625em;
   font-weight: bold;
   margin-bottom: 15px;
 }
-/* line 77, ../compass/screen.scss */
+/* line 79, ../compass/screen.scss */
 .entry-title a {
   text-decoration: none;
 }
-/* line 80, ../compass/screen.scss */
+/* line 82, ../compass/screen.scss */
 .entry-title a:hover, .entry-title a:active, .entry-title a:focus {
   color: #262829;
 }
