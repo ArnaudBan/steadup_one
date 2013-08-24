@@ -16,8 +16,8 @@ function abso_steadup_setup(){
 		'default-text-color'     => '#262829',
 		'header-text'            => true,
 		'uploads'                => true,
-		'wp-head-callback'       => '',
-		'admin-head-callback'    => 'abso_admin_steadup_head',
+		'wp-head-callback'       => 'abso_steadup_head_style',
+		'admin-head-callback'    => '',
 		'admin-preview-callback' => '',
 	);
 	add_theme_support( 'custom-header', $header_args );
@@ -32,38 +32,38 @@ function abso_steadup_setup(){
 }
 add_action('after_setup_theme', 'abso_steadup_setup');
 
+function abso_steadup_head_style(){
 
+	$text_color = get_header_textcolor();
 
-function abso_admin_steadup_head(){
-	?>
-	<style type="text/css">
+		// If no custom options for text are set, let's bail
+		if ( $text_color == get_theme_support( 'custom-header', 'default-text-color' ) )
+			return;
 
-		#headimg{
-			text-align: center;
-			padding: 20px 2%;
-			background-size: cover;
-			background-repeat: no-repeat;
-		}
-
-		#headimg h1{
-			font-size: px_to_em( 30 );
-			font-weight: bold;
-			margin: 15px;
-		}
-
-		#headimg h1 a{
-			text-decoration: none;
-			color: #262829;
-		}
-
-		#headimg h1 a:hover, #headimg h1 a:focus{
-			color: #e95a50;
-		}
-
-		}
-	</style>
-
-	<?php
+		// If we get this far, we have custom styles.
+		?>
+		<style type="text/css" id="twentytwelve-header-css">
+		<?php
+			// Has the text been hidden?
+			if ( ! display_header_text() ) :
+		?>
+			.site-title,
+			.site-description {
+				position: absolute;
+				clip: rect(1px 1px 1px 1px); /* IE7 */
+				clip: rect(1px, 1px, 1px, 1px);
+			}
+		<?php
+			// If the user has set a custom color for the text, use that.
+			else :
+		?>
+			.site-header h1 a,
+			.site-header h2 {
+				color: #<?php echo $text_color; ?>;
+			}
+		<?php endif; ?>
+		</style>
+		<?php
 }
 
 
@@ -105,9 +105,9 @@ function abso_custom_background_cb(){
 			$position = " background-position: top $position;";
 
 		$attachment = get_theme_mod( 'background_attachment', 'scroll' );
-		if ( ! in_array( $attachment, array( 'fixed', 'scroll' ) ) )
-			$attachment = 'scroll';
-		$attachment = " background-attachment: $attachment;";
+		if ( ! in_array( $attachment, array( 'fixed', 'scroll' ) ) || $attachment == 'scroll' )
+			$attachment = 'absolute';
+		$attachment = " position: $attachment;";
 
 		$style .= $image . $repeat . $position . $attachment;
 	}
