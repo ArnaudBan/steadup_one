@@ -138,17 +138,22 @@ a:hover, a:active, a:focus {
   margin-bottom: 10px;
 }
 
-/* line 74, ../compass/screen.scss */
+/* line 75, ../compass/screen.scss */
+.blog .hentry {
+  background-color: inherit;
+}
+
+/* line 79, ../compass/screen.scss */
 .entry-title {
   font-size: 1.5625em;
   font-weight: bold;
   margin-bottom: 15px;
 }
-/* line 79, ../compass/screen.scss */
+/* line 84, ../compass/screen.scss */
 .entry-title a {
   text-decoration: none;
 }
-/* line 82, ../compass/screen.scss */
+/* line 87, ../compass/screen.scss */
 .entry-title a:hover, .entry-title a:active, .entry-title a:focus {
   color: #262829;
 }

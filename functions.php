@@ -29,6 +29,10 @@ function abso_steadup_setup(){
 		'wp-head-callback'   => 'abso_custom_background_cb',
 	);
 	add_theme_support( 'custom-background', $args );
+
+
+	//Add meta "background-color" to the page
+	require_once( 'inc/page-meta.php' );
 }
 add_action('after_setup_theme', 'abso_steadup_setup');
 
@@ -124,7 +128,6 @@ function abso_custom_background_cb(){
 }
 
 
-// TODO add meta "background-color" to the page
 
 
 /**
@@ -136,6 +139,11 @@ function abso_enqueue_script(){
 	wp_enqueue_script( 'abso_scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '20130820', true );
 }
 add_action( 'wp_enqueue_scripts', 'abso_enqueue_script' );
+
+function abso_add_admin_scripts(){
+  wp_register_script( 'abso_admin_scripts', get_template_directory_uri() .  '/js/admin.js', array('jquery', 'wp-color-picker'), '20130826', true );
+}
+add_action( 'admin_enqueue_scripts', 'abso_add_admin_scripts');
 
 /**
  * Somme custom query form the theme
@@ -149,6 +157,7 @@ function abso_custom_query( $wp_query){
 		// All the page on the front page
 		if( $wp_query->get( 'page_id' ) == get_option( 'page_on_front' ) ){
 			$wp_query->set( 'post_type', 'page' );
+			$wp_query->set( 'post_status', 'publish' );
 			$wp_query->set( 'posts_per_page', -1 );
 			$wp_query->set( 'orderby', 'menu_order' );
 			$wp_query->set( 'order', 'ASC' );

@@ -71,6 +71,11 @@ a{
 	}
 
 }
+
+.blog .hentry{
+	background-color: inherit;
+}
+
 .entry-title{
 	font-size: px_to_em( 25 );
 	font-weight: bold;

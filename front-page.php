@@ -16,8 +16,10 @@ get_header();
 
 				// Display the blog
 				if( get_the_ID() == get_option( 'page_for_posts' ) ){
+					$bgcolor = get_post_meta( get_the_ID(), 'steadup_page_bgcolor', true );
 					?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<article id="post-<?php the_ID(); ?>" <?php post_class('blog'); ?>
+						<?php  if($bgcolor) echo 'style="background-color:'. $bgcolor .';"' ?>>
 
 						<header class="entry-header">
 							<h1 class="entry-title">
